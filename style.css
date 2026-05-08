@@ -1,0 +1,10 @@
+#score-display {
+    position: absolute; /* 画面の決まった場所に浮かせる */
+    top: 20px;          /* 上から20px */
+    left: 20px;         /* 左から20px */
+    color: white;       /* 文字を白くして黒背景で見えるようにする */
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    z-index: 10;        /* キャンバスより手前に表示する */
+    pointer-events: none; /* スコアがマウス操作の邪魔をしないようにする */
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム</title>
+    <style>
+        /* ブラウザの隙間をすべて消す魔法のCSS */
+        body {
+            margin: 0;
+            overflow: hidden; /* スクロールバーが出ないようにする */
+            background-color: black; /* 画面外が黒だとゲームっぽい */
+        }
+        canvas {
+            display: block; /* 画像の下にできる謎の隙間を消す */
+        }
+    </style>
+</head>
+<body>
+    <div id="score-display">スコア: 0</div>
+    <style>
+    #score-display {
+    position: absolute; /* 画面の決まった場所に浮かせる */
+    top: 20px;          /* 上から20px */
+    left: 20px;         /* 左から20px */
+    color: white;       /* 文字を白くして黒背景で見えるようにする */
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    z-index: 10;        /* キャンバスより手前に表示する */
+    pointer-events: none; /* スコアがマウス操作の邪魔をしないようにする */
+}</style>
+<div id="game-over">GAMEOVER</div>
+    <style>
+    #game-over {
+    position: absolute; /* 画面の決まった場所に浮かせる */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;       /* 文字を白くして黒背景で見えるようにする */
+    font-size: 100px;
+    font-family: 'Arial', sans-serif;
+    z-index: 10;        /* キャンバスより手前に表示する */
+    pointer-events: none; /* スコアがマウス操作の邪魔をしないようにする */
+}</style>
+    <canvas id="game"></canvas>
+    <script src = 'evade.js' defer></script>
+</body>
+</html>
