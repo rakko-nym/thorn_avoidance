@@ -72,6 +72,23 @@ keys[event.key] = false ;
 addEventListener('keydown',(event)=>{
 keys[event.key] = true ;
 });
+//スマホ版はAIが実装
+document.addEventListener("touchstart", (e) => {
+    const touchX = e.touches[0].clientX;
+    const screenHalf = window.innerWidth / 2;
+
+    if (touchX < screenHalf) {
+        // player.x ではなく playerX に直す
+        playerX -= 20;
+    } else {
+        // player.x ではなく playerX に直す
+        playerX += 20;
+    }
+
+    // 画面外に行かないための制限も playerX と playerSize に直す
+    if (playerX < 0) playerX = 0;
+    if (playerX > canvas.width - playerSize) playerX = canvas.width - playerSize;
+});
 function gameLoop (){
 player();
 down();
