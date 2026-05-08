@@ -56,7 +56,7 @@ function scoreUpdate (){
 };
 function clone (){
 randomX = Math.random()*canvas.width ;
-nomber.push(new thorn(randomX,0,3 + score / 200));
+nomber.push(new thorn(randomX,0,1 + score / 200));
 }
 function down (){
 for(let i=0;i<nomber.length;i++){
