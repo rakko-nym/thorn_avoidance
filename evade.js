@@ -47,6 +47,8 @@ ctx.fillStyle = 'blue';
 ctx.fillRect(playerX,playerY,playerSize,playerSize);
 if(keys.ArrowRight === true){playerX += playerSpeed;};
 if(keys.ArrowLeft === true){playerX -= playerSpeed;};
+setupMobileButton('leftBtn', 'ArrowLeft');
+setupMobileButton('rightBtn', 'ArrowRight');
 };
 const scoreElement = document.getElementById('score-display');
 const gameOverElement = document.getElementById('game-over');
@@ -72,21 +74,7 @@ keys[event.key] = false ;
 addEventListener('keydown',(event)=>{
 keys[event.key] = true ;
 });
-//スマホ版はAIが実装
-function setupMobileBtn(id, keyName) {
-  const btn = document.getElementById(id);
-  
-  // 指が触れた時
-  btn.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // ズームやスクロールを防止
-    keys[keyName] = true;
-  }, {passive: false});
 
-  // 指が離れた時（または画面外に指が流れた時）
-  btn.addEventListener('touchend', () => {
-    keys[keyName] = false;
-  });
-}
 function gameLoop (){
 player();
 down();
@@ -100,3 +88,24 @@ requestAnimationFrame(gameLoop);}
 }
 
 gameLoop();
+//AI実装
+// スマホのボタン操作をPCのキー操作に変換する関数
+function setupMobileButton(id, keyName) {
+  const btn = document.getElementById(id);
+  
+  // 指が触れた時（keysをtrueにする）
+  btn.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // ブラウザのズーム等を防止
+    keys[keyName] = true;
+  }, { passive: false });
+
+  // 指が離れた時（keysをfalseにする）
+  btn.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keys[keyName] = false;
+  }, { passive: false });
+}
+
+// 既存のplayer関数内の if(keys.ArrowLeft) などに合わせる
+setupMobileButton('leftBtn', 'ArrowLeft');
+setupMobileButton('rightBtn', 'ArrowRight');
