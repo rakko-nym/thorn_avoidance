@@ -1,10 +1,7 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
-//canvas.width = window.innerWidth;
-//canvas.height = window.innerHeight;
-canvas.style.width = "100vw";
-canvas.style.height = "100vh";
-canvas.style.display = "block";
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 let keys = {} ;
 let playerX = canvas.width / 2 ;
 let playerY = canvas.height - 35 ;
