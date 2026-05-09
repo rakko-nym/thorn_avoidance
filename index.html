@@ -8,13 +8,16 @@
         /* ブラウザの隙間をすべて消す魔法のCSS */
         body {
             margin: 0;
-            overflow: hidden; /* スクロールバーが出ないようにする */
-            background-color: black; /* 画面外が黒だとゲームっぽい */
-        }
+            overflow: hidden; /* 画面のスクロールを完全に禁止 */
+            position: fixed;  /* 画面を固定 */
+            width: 100%;
+            height: 100%;
+}
         canvas {
             display: block; /* 画像の下にできる謎の隙間を消す */
         }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=none">
 </head>
 <body>
   <div id="controls" style="position: fixed; bottom: 20px; width: 100%; display: flex; justify-content: space-around; pointer-events: none;">
