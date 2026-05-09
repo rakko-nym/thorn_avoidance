@@ -47,8 +47,6 @@ ctx.fillStyle = 'blue';
 ctx.fillRect(playerX,playerY,playerSize,playerSize);
 if(keys.ArrowRight === true){playerX += playerSpeed;};
 if(keys.ArrowLeft === true){playerX -= playerSpeed;};
-setupMobileButton('leftBtn', 'ArrowLeft');
-setupMobileButton('rightBtn', 'ArrowRight');
 };
 const scoreElement = document.getElementById('score-display');
 const gameOverElement = document.getElementById('game-over');
